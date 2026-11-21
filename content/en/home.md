@@ -1,7 +1,7 @@
 ---
 key: home
 title: Home
-seo_title: Wall and floor tiling in Loja, Granada, Málaga and nearby
+seo_title: Wall and floor tiling in Loja and Granada | MAD Construcción
 description: Over 20 years of wall tiling, floor tiling and renovation in Loja, Granada, Málaga and the surrounding areas. Free, no-obligation quotes by phone or WhatsApp.
 ---
 

@@ -1274,8 +1274,18 @@ def org_jsonld(lang: str) -> dict:
         d["telephone"] = CO["phone"]
     if CO.get("email"):
         d["email"] = CO["email"]
-    if CO.get("address"):
+    if CO.get("alternate_name"):
+        d["alternateName"] = CO["alternate_name"]
+    if (STATIC / "og.png").exists():
+        d["image"] = SITE_URL + "/og.png"
+    # schema_address (partes de PostalAddress) manda sobre address: permite dar localidad y código postal sin la calle
+    # (negocio que va a domicilio del cliente y cuyo domicilio fiscal es su casa: la calle ya está en el aviso legal).
+    if CO.get("schema_address"):
+        d["address"] = {"@type": "PostalAddress", **CO["schema_address"]}
+    elif CO.get("address"):
         d["address"] = CO["address"]
+    if CO.get("area_served"):
+        d["areaServed"] = [{"@type": "City", "name": a} for a in CO["area_served"]]
     if CO.get("opening_hours"):
         d["openingHours"] = CO["opening_hours"]
     same = [u for u in CO.get("social", {}).values() if u]

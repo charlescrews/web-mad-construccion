@@ -144,6 +144,23 @@ class Generacion(unittest.TestCase):
         self.assertNotEqual(code, 0)
         self.assertIn("dos composiciones a la vez: juntas, galeria", out)
 
+    def test_datos_estructurados_del_negocio(self):
+        import json, re
+        s = sitio()
+        self.addCleanup(s.cleanup)
+        cfg = json.loads((s.dir / "site.json").read_text(encoding="utf-8"))
+        cfg["company"].update({"address": "Calle Mayor 1, 18300 Loja (Granada)", "alternate_name": ["Demo"],
+                               "schema_address": {"addressLocality": "Loja", "postalCode": "18300"},
+                               "area_served": ["Loja", "Granada"]})
+        (s.dir / "site.json").write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
+        code, out = s.build()
+        self.assertEqual(code, 0, out)
+        ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', s.read("index.html"), re.S).group(1))
+        self.assertEqual(ld["address"], {"@type": "PostalAddress", "addressLocality": "Loja", "postalCode": "18300"})
+        self.assertNotIn("Calle Mayor", json.dumps(ld))  # la calle solo en el aviso legal
+        self.assertEqual(ld["areaServed"], [{"@type": "City", "name": "Loja"}, {"@type": "City", "name": "Granada"}])
+        self.assertEqual(ld["alternateName"], ["Demo"])
+
     def test_barra_movil_con_llamar_y_whatsapp(self):
         co = {**_company(), "whatsapp": "+34 600 000 002"}
         h = self.build_ok(company=co, barra_movil={"activa": True}).read("contacto/index.html")

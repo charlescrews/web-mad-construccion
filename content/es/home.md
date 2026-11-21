@@ -1,7 +1,7 @@
 ---
 key: home
 title: Inicio
-seo_title: Alicatados y solados en Loja, Granada, Málaga y alrededores
+seo_title: Alicatados y solados en Loja y Granada | MAD Construcción
 description: Más de 20 años en alicatados, solados y reformas en Loja, Granada, Málaga y alrededores. Presupuesto gratis y sin compromiso por teléfono o WhatsApp.
 ---
 
