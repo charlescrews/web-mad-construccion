@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Exportación de WordPress FICTICIA para los tests (formato WXR 1.2). -->
+<rss version="2.0"
+	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:wp="http://wordpress.org/export/1.2/">
+<channel>
+	<title>Panadería de Ejemplo</title>
+	<link>https://www.web-antigua.test</link>
+	<wp:wxr_version>1.2</wp:wxr_version>
+	<wp:base_site_url>https://www.web-antigua.test</wp:base_site_url>
+	<wp:base_blog_url>https://www.web-antigua.test</wp:base_blog_url>
+	<wp:author><wp:author_id>1</wp:author_id><wp:author_login><![CDATA[autora-ejemplo]]></wp:author_login><wp:author_email><![CDATA[autora@web-antigua.test]]></wp:author_email><wp:author_display_name><![CDATA[Autora Ejemplo]]></wp:author_display_name></wp:author>
+
+	<item>
+		<title>Cómo hacemos el pan: «masa madre» &amp; paciencia</title>
+		<link>https://www.web-antigua.test/2024/05/como-hacemos-el-pan/</link>
+		<pubDate>Wed, 15 May 2024 08:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[autora-ejemplo]]></dc:creator>
+		<guid isPermaLink="false">https://www.web-antigua.test/?p=12</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>Cada día alimentamos la <strong>masa madre</strong> a las <em>seis</em>. Mira también <a href="https://www.web-antigua.test/nosotros/">quiénes somos</a> y <a href="javascript:alert(1)">esto</a>.</p>
+<!-- /wp:paragraph -->
+<h2>El proceso</h2>
+<h3>Fermentación</h3>
+<p>1984. Abrimos el primer horno.</p>
+<p>&lt;script&gt;alert("texto")&lt;/script&gt; es solo texto. ::: también.</p>
+<p>:::hero esto no es un bloque</p>
+<figure><img src="https://www.web-antigua.test/wp-content/uploads/2024/05/hogaza-1024x768.jpg" alt="Hogaza recién hecha sobre la mesa"><figcaption>Hogaza de 1 kg</figcaption></figure>
+<p><img src="https://www.web-antigua.test/wp-content/uploads/2024/05/horno.jpg" onerror="alert(1)"></p>
+<iframe src="https://www.youtube.com/embed/abc123" width="560" height="315"></iframe>
+<script>document.write('malo')</script>
+[contact-form-7 id="5" title="Contacto"]
+<ul><li>Harina ecológica</li><li>Agua <a href="https://www.web-antigua.test/2024/06/el-agua/">del grifo</a></li></ul>
+<table><tr><th>Pan</th><th>Horas</th></tr><tr><td>Hogaza</td><td>24</td></tr></table>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>12</wp:post_id>
+		<wp:post_date><![CDATA[2024-05-15 10:00:00]]></wp:post_date>
+		<wp:post_name><![CDATA[como-hacemos-el-pan]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<category domain="category" nicename="obrador"><![CDATA[Obrador]]></category>
+		<wp:comment>
+			<wp:comment_id>3</wp:comment_id>
+			<wp:comment_author><![CDATA[Cliente Comentarista]]></wp:comment_author>
+			<wp:comment_author_email><![CDATA[comentarista@correo.test]]></wp:comment_author_email>
+			<wp:comment_author_IP><![CDATA[203.0.113.77]]></wp:comment_author_IP>
+			<wp:comment_content><![CDATA[¡Qué rico! Llamadme al 600123123]]></wp:comment_content>
+			<wp:comment_approved><![CDATA[1]]></wp:comment_approved>
+		</wp:comment>
+	</item>
+
+	<item>
+		<title>El agua importa</title>
+		<link>https://www.web-antigua.test/2024/06/el-agua/</link>
+		<guid isPermaLink="false">https://www.web-antigua.test/?p=14</guid>
+		<content:encoded><![CDATA[Usamos agua filtrada.
+
+Y la dejamos reposar una noche.]]></content:encoded>
+		<excerpt:encoded><![CDATA[Por qué filtramos el agua del obrador.]]></excerpt:encoded>
+		<wp:post_id>14</wp:post_id>
+		<wp:post_date><![CDATA[2024-06-01 09:00:00]]></wp:post_date>
+		<wp:post_name><![CDATA[el-agua]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+	</item>
+
+	<item>
+		<title>Borrador secreto de precios</title>
+		<link>https://www.web-antigua.test/?p=20</link>
+		<content:encoded><![CDATA[<p>Precios internos que no se publican.</p>]]></content:encoded>
+		<wp:post_id>20</wp:post_id>
+		<wp:post_name><![CDATA[borrador-secreto]]></wp:post_name>
+		<wp:status><![CDATA[draft]]></wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+	</item>
+	<item>
+		<title>Entrada privada del equipo</title>
+		<link>https://www.web-antigua.test/2024/07/privada/</link>
+		<content:encoded><![CDATA[<p>Turnos del personal.</p>]]></content:encoded>
+		<wp:post_id>21</wp:post_id>
+		<wp:post_name><![CDATA[privada]]></wp:post_name>
+		<wp:status><![CDATA[private]]></wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+	</item>
+	<item>
+		<title>Entrada con contraseña</title>
+		<link>https://www.web-antigua.test/2024/07/con-clave/</link>
+		<content:encoded><![CDATA[<p>Solo para mayoristas.</p>]]></content:encoded>
+		<wp:post_id>22</wp:post_id>
+		<wp:post_name><![CDATA[con-clave]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[post]]></wp:post_type>
+		<wp:post_password><![CDATA[mayorista2024]]></wp:post_password>
+	</item>
+
+	<item>
+		<title>Nosotros</title>
+		<link>https://www.web-antigua.test/nosotros/</link>
+		<guid isPermaLink="false">https://www.web-antigua.test/?page_id=2</guid>
+		<content:encoded><![CDATA[<h1>Quiénes somos</h1><p>Una panadería de barrio.</p><h3>El equipo</h3><p>Tres personas.</p>]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>2</wp:post_id>
+		<wp:post_name><![CDATA[nosotros]]></wp:post_name>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+	</item>
+	<item>
+		<title>hogaza</title>
+		<wp:post_id>30</wp:post_id>
+		<wp:status><![CDATA[inherit]]></wp:status>
+		<wp:post_type><![CDATA[attachment]]></wp:post_type>
+		<wp:attachment_url><![CDATA[https://www.web-antigua.test/wp-content/uploads/2024/05/hogaza.jpg]]></wp:attachment_url>
+	</item>
+	<item>
+		<title>Hogaza 1 kg</title>
+		<wp:post_id>40</wp:post_id>
+		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_type><![CDATA[product]]></wp:post_type>
+	</item>
+</channel>
+</rss>

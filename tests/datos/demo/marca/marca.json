@@ -1,0 +1,25 @@
+{
+  "_nota": "Datos del manual de marca que no están en site.json (skill identidad-marca-cliente). python tools/marca.py kit genera marca/entrega/ y su zip; se para si queda un dato por confirmar (marcado con CONFIRMAR entre corchetes) o si algo de la marca falla. Ejemplo de la plantilla: cambiarlo todo por lo del cliente.",
+  "lema": "Pan de masa madre en Benalmádena",
+  "logo": {
+    "tamano_minimo_px": 120,
+    "tamano_minimo_mm": 30,
+    "area_respeto": "la mitad de la altura del símbolo, libre por los cuatro lados"
+  },
+  "colores": {
+    "nombres": {
+      "primary": "Tostado",
+      "ink": "Corteza",
+      "paper": "Harina"
+    },
+    "cmyk": {}
+  },
+  "tono": {
+    "trato": "de tú",
+    "es": ["cercano", "concreto", "de barrio"],
+    "no_es": ["técnico", "pretencioso"],
+    "palabras_si": ["obrador", "masa madre", "hecho hoy"],
+    "palabras_no": ["artesanal de calidad", "productos premium"]
+  },
+  "usos_incorrectos": []
+}

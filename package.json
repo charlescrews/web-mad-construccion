@@ -1,0 +1,8 @@
+{
+  "name": "plantilla-web-a-herramientas",
+  "private": true,
+  "description": "Solo herramientas de comprobación (accesibilidad con axe-core). La web no usa Node: build.py es Python.",
+  "devDependencies": {
+    "axe-core": "4.13.0"
+  }
+}

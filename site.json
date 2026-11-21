@@ -1,0 +1,199 @@
+{
+  "site_url": "https://www.madconstruccion.es",
+  "custom_domain": "www.madconstruccion.es",
+  "site_name": "Miguel Ángel Díaz Construcción",
+  "languages": [
+    "es",
+    "en"
+  ],
+  "company": {
+    "legal_name": "Miguel Ángel Díaz García (MAD1973 Construcción)",
+    "cif": "74634484J",
+    "address": "Calle Carmen de los Ángeles 6, 2º A, 18300 Loja (Granada)",
+    "email": "migueldiga1973@gmail.com",
+    "phone": "+34 652 94 52 14",
+    "whatsapp": "+34652945214",
+    "registry": "",
+    "schema_type": "HomeAndConstructionBusiness",
+    "opening_hours": "",
+    "social": {
+      "facebook": "https://www.facebook.com/MADconstruccion1973",
+      "instagram": "https://www.instagram.com/madconstruccion1973",
+      "tiktok": "https://www.tiktok.com/@madconstruccion1973"
+    },
+    "opening_hours_text": {
+      "es": "",
+      "en": ""
+    },
+    "cierres": [],
+    "cierres_api": "",
+    "cierres_nota": "Festivos y vacaciones (desde/hasta AAAA-MM-DD). Salen en el contacto (próximos 90 días) y en /asistente.json para el asistente. check.py avisa de los que ya pasaron. cierres_api: https://api.cliente.es/api/cierres para tomar además los que el negocio apunta en el panel de la plantilla C (panel → Cierres; la C vuelve a publicar la web cuando cambian)."
+  },
+  "brand": {
+    "primary": "#23282E",
+    "primary_ink": "#FFFFFF",
+    "ink": "#1F2328",
+    "muted": "#5C5F63",
+    "paper": "#F7F5F2",
+    "surface": "#FFFFFF",
+    "rule": "#E2DCD4",
+    "radius": "4px",
+    "font_heading": "'Montserrat', system-ui, sans-serif",
+    "font_body": "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+    "font_files": [
+      {
+        "family": "Montserrat",
+        "file": "montserrat-latin-wght-normal.woff2",
+        "weight": "100 900",
+        "style": "normal",
+        "licencia": "montserrat-LICENSE.txt",
+        "origen": "@fontsource-variable/montserrat@5.3.0"
+      }
+    ],
+    "logo": "img/logo.svg",
+    "note": "Skills diseno-web-cliente e identidad-marca-cliente. primary no se toca; python tools/brand.py comprueba el contraste. font_files: woff2 autoalojados en static/fonts/ con su licencia al lado («licencia»): python tools/marca.py fuente <id>. logo: SVG en trazos (python tools/marca.py logotipo); favicon: static/favicon.svg cuadrado. python tools/marca.py revisar | og | kit."
+  },
+  "contact_form": {
+    "endpoint": "",
+    "note": "Deja endpoint vacío para mostrar solo email y teléfono. Con la plantilla C: https://api.dominio/api/contact"
+  },
+  "updated": "2026-11-18",
+  "chatbot": {
+    "script": "",
+    "bot": "",
+    "conservacion_dias": 0,
+    "transferencia": "",
+    "note": "Asistente de chat (plantilla-bot). script: https://bots.DOMINIO/widget.js; bot: id del cliente. conservacion_dias: igual que en el servidor (0 si LOG_CONVERSATIONS=none). transferencia: garantía según el contrato del proveedor de IA. proveedores_ia: [{nombre, pais}] en orden (principal y respaldo, plantilla-bot docs/proveedores-ia.md); si todos están en el EEE no hay transferencia.",
+    "proveedores_ia": []
+  },
+  "asistente_voz": {
+    "activo": false,
+    "conservacion_dias": 0,
+    "transferencia": "",
+    "note": "Asistente al teléfono (plantilla-bot > voz; skill agente-voz-cliente). activo: aviso junto al teléfono del contacto y párrafo de privacidad; check.py --release exige el encargado «telefonia» (Twilio). conservacion_dias: igual que en el servidor (0 si LOG_CONVERSATIONS=none). transferencia: garantía según los contratos de Twilio y del proveedor de IA (si está vacía, la de chatbot)."
+  },
+  "seo": {
+    "bloquear_entrenamiento_ia": false,
+    "note": "true bloquea a los rastreadores que entrenan modelos de IA (GPTBot, ClaudeBot, Google-Extended, CCBot, Applebot-Extended). Los buscadores y las búsquedas con IA siguen entrando. Decisión del cliente (skill seo-visibilidad-cliente)."
+  },
+  "catalog": {
+    "source": "",
+    "page": "productos",
+    "api": "",
+    "comprar": false,
+    "envio": [],
+    "por_categoria": false,
+    "permitir_vacio": false,
+    "asistente": false,
+    "note": "source: vacío (sin catálogo), un JSON del repositorio o https://api.cliente.es/api/catalogo/export.json. page: clave de la página con el bloque :::catalogo. api: https://api.cliente.es para precios al día y botón de compra (comprar: true). envio: [{\"id\": \"recogida\", \"nombre\": \"Recogida en tienda\"}] si hay varios métodos. por_categoria: una página por categoría (catálogos grandes). factura_completa: campos opcionales para pedir factura a nombre de una empresa (plantilla C con facturación). asistente: true añade /pedido/ (noindex) donde el asistente de chat deja un pedido preparado para pagarlo aquí (necesita api y comprar; skill asistente-conectado-cliente; en plantilla-bot, tienda.pagina_pedido = https://DOMINIO/pedido/).",
+    "factura_completa": false
+  },
+  "cuenta_url": "",
+  "medicion": {
+    "ga4": "",
+    "google_ads": "",
+    "meta_pixel": "",
+    "politica_actualizada": "",
+    "remarketing": false,
+    "note": "Medición de campañas (skill medicion-campanas-cliente). ga4: G-XXXXXXX; google_ads: AW-XXXXXXXXX; meta_pixel: id numérico. Con cualquiera de ellos se activa el aviso de cookies (static/consent.js), la política de cookies y «Configurar cookies» en el pie; nada se carga sin aceptar. politica_actualizada: fecha en que se revisó la política de cookies con el cliente. remarketing (true/false, skill campanas-ads-cliente): mostrar anuncios a quien visitó la web; cambia el aviso, la política de cookies y la privacidad, y vuelve a preguntar a quien ya había aceptado la publicidad."
+  },
+  "crm": {
+    "boletin": "",
+    "novedades_en_pedido": false,
+    "ofertas_clientes": false,
+    "aviso_version": "v1",
+    "programa": {
+      "bases_url": ""
+    },
+    "note": "CRM y fidelización (skill crm-fidelizacion-cliente, plantilla C con config/crm.json). boletin: https://api.cliente.es/api/boletin para el bloque :::boletin (doble confirmación). novedades_en_pedido: casilla para aceptar novedades al comprar. ofertas_clientes: aviso y casilla para OPONERSE a ofertas de productos similares (LSSI 21.2; aviso_version igual que clientes_similares.aviso_version del servidor). Una de las dos, no ambas. programa.bases_url: página con las bases del programa de puntos (casilla para unirse y campo de vale en el pedido). Todo actualiza la privacidad."
+  },
+  "privacidad": {
+    "contacto_meses": 12,
+    "pedidos_anios": 6,
+    "encargados": [
+      {
+        "servicio": "alojamiento",
+        "nombre": "GitHub Pages (GitHub, Inc.)",
+        "pais": "EE. UU.",
+        "garantia": "Marco de Privacidad de Datos UE-EE. UU. y cláusulas contractuales tipo"
+      }
+    ],
+    "note": "Plazos y encargados de la política de privacidad (skill rgpd-tecnico-cliente). Los mismos que config/rgpd.json de la plantilla C. servicio: alojamiento, copias, email, pagos, facturacion, medicion, automatizaciones, mensajeria, mantenimiento, otro. pais: dónde trata los datos; fuera del EEE, garantia obligatoria (comprobarla en el contrato o la web del proveedor el día que se rellena). dominios (opcional): dominios desde los que ese proveedor sirve recursos a la web (p. ej. un CDN de imágenes); el resto de recursos de terceros los rechaza tools/check.py."
+  },
+  "accesibilidad": {
+    "estado": "total",
+    "fecha_evaluacion": "2026-11-21",
+    "metodo": "Autoevaluación: revisión automática de todas las páginas con axe-core, pruebas automáticas de navegación con teclado y del foco visible, y revisión visual a 320 píxeles de ancho (equivalente a ampliar al 400 %).",
+    "metodo_en": "Self-assessment: automated review of every page with axe-core, automated keyboard navigation and visible focus tests, and visual review at 320 pixels wide (equivalent to 400% zoom).",
+    "problemas": [],
+    "descripcion_servicio": "",
+    "descripcion_servicio_en": "",
+    "contacto": "",
+    "plazo_respuesta_dias": 10,
+    "note": "Declaración de accesibilidad (skill accesibilidad-cliente), en /accesibilidad/ y enlazada en el pie. estado: total | parcial | no, tras evaluar con tools/axe.py y la revisión manual. fecha_evaluacion: AAAA-MM-DD (check.py --release falla sin ella). problemas: [{\"que\": \"…\", \"alternativa\": \"…\", \"solucion_prevista\": \"…\"}], obligatorio si estado no es total. descripcion_servicio: cómo se compra (tienda online: información del anexo V de la Ley 11/2023). contacto: por defecto company.email. metodo (y metodo_en para la versión en inglés): vacío = autoevaluación con axe y revisión manual."
+  },
+  "redirecciones": {
+    "note": "Migraciones (skill plataformas-existentes-cliente y seo-visibilidad-cliente): «reglas» {\"/url-vieja/\": \"/url-nueva/\" o \"@clave\"}. Genera una página con redirección inmediata y canonical por cada una (vale en GitHub Pages) y, con htaccess: true (alojamiento Apache, publicación por SFTP), además .htaccess con 301, lo único que sirve para direcciones con ?p=123 o .php. Solo destinos de esta web, sin cadenas; build.py falla si el destino no existe o si el origen es una página de la web. tools/importar_wordpress.py propone las reglas.",
+    "htaccess": false,
+    "reglas": {}
+  },
+  "whatsapp": {
+    "note": "Skill whatsapp-cliente. avisos: true si la plantilla C envía avisos de pedidos por WhatsApp (casilla sin marcar en el pedido, texto de privacidad y encargado «whatsapp» obligatorio en check.py --release); el widget de reservas de la plantilla C pone su propia casilla. aviso_version: versión del texto de la casilla (cambiarla si cambia el texto). El número del negocio para que le escriban va en company.whatsapp (enlace wa.me en el contacto, sin cargar nada de Meta).",
+    "avisos": false,
+    "aviso_version": "v1"
+  },
+  "app": {
+    "pwa": false,
+    "nombre": "",
+    "nombre_corto": "",
+    "color_fondo": "",
+    "push": {
+      "clave_publica": "",
+      "api": "",
+      "aviso_version": "push-v1"
+    },
+    "tiendas": {
+      "ios": "",
+      "android": ""
+    },
+    "ios": {
+      "app_id": "",
+      "app_store_id": "",
+      "rutas": [],
+      "excluir": []
+    },
+    "android": {
+      "paquete": "",
+      "huellas": []
+    },
+    "note": "Skill apps-moviles-cliente. pwa: web instalable (manifiesto, iconos de static/app/ con python tools/iconos.py simbolo.png, service worker con copia sin conexión y página «Sin conexión»); el service worker solo se registra si la web está instalada o si alguien pide avisos. nombre_corto: 12 caracteres como máximo. push.clave_publica: la pública VAPID de la plantilla C (npm run push -- comprobar): casilla sin marcar «avisos de este pedido en este dispositivo», baja en la privacidad y párrafo de privacidad; push.api: por defecto catalog.api. tiendas: fichas de App Store y Google Play (enlaces en el pie; con cualquier app, check.py --release exige el encargado «notificaciones»). ios.app_id (TEAMID.bundle) y android.paquete + huellas (SHA-256 de Play Console > Firma de apps): /.well-known para enlaces universales y App Links (GitHub Pages: include-hidden-files en el flujo). ios.app_store_id: banner de Safari."
+  },
+  "barra_movil": {
+    "activa": false,
+    "note": "Barra fija abajo en el móvil con Llamar (company.phone) y WhatsApp (company.whatsapp, si lo hay). Solo enlaces: no carga nada de fuera."
+  },
+  "presupuesto": {
+    "trabajos": {
+      "es": [
+        "Baño",
+        "Cocina",
+        "Suelo",
+        "Terraza",
+        "Tejado o impermeabilización",
+        "Reforma u obra",
+        "Otro"
+      ],
+      "en": [
+        "Bathroom",
+        "Kitchen",
+        "Floor",
+        "Terrace",
+        "Roof or waterproofing",
+        "Renovation or building work",
+        "Other"
+      ]
+    },
+    "plazos": [],
+    "note": "Bloque :::presupuesto: trabajos (lista del cliente, obligatoria si se usa el bloque) y plazos (opcional; por defecto «Lo antes posible», «En los próximos 3 meses», «Más adelante», «Solo quiero informarme»). Vacío si no se usa."
+  }
+}

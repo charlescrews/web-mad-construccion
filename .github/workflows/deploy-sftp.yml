@@ -1,0 +1,54 @@
+# Publica public/ por SFTP en un hosting tradicional (IONOS Hosting, etc.).
+# Activación: variable de repositorio DEPLOY_SFTP = true y estos secretos:
+#   SFTP_HOST, SFTP_USER, SFTP_PASSWORD, SFTP_PATH (carpeta destino en el hosting, p. ej. /clickandbuilds/cliente)
+# Acciones fijadas por commit (SHA), no por etiqueta: una etiqueta se puede mover (ataque a trivy-action, marzo de 2026).
+# Dependabot las actualiza solo (.github/dependabot.yml).
+name: Publicar por SFTP
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+  # La API de la plantilla C avisa cuando cambia el catálogo (CATALOG_SOURCE=db, WEB_REPO y WEB_REPO_TOKEN).
+  repository_dispatch:
+    types: [catalogo]
+  # Con catálogo desde la API, una vez al día para que fichas y disponibilidad estén al día aunque nadie toque nada.
+  # schedule:
+  #   - cron: "17 4 * * *"
+
+concurrency:
+  group: sftp
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    if: vars.DEPLOY_SFTP == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5.6.0
+        with:
+          python-version: "3.12"
+      # Accesibilidad en navegador (skill accesibilidad-cliente): axe-core (npm) + Playwright con Chromium.
+      - run: npm ci --ignore-scripts
+      - run: pip install markdown playwright==1.56.0 Pillow==12.3.0 fonttools==4.66.1 brotli==1.2.0 && python -m playwright install --with-deps chromium
+      - run: python -m unittest discover -s tests -t . -q
+      - run: python build.py
+      - run: python tools/check.py
+      - run: python tools/axe.py
+      - name: Subir por SFTP
+        env:
+          HOST: ${{ secrets.SFTP_HOST }}
+          USER: ${{ secrets.SFTP_USER }}
+          PASS: ${{ secrets.SFTP_PASSWORD }}
+          DEST: ${{ secrets.SFTP_PATH }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          lftp -c "set sftp:auto-confirm yes; set net:max-retries 3; \
+            open -u \"$USER\",\"$PASS\" sftp://$HOST; \
+            mirror --reverse --delete --verbose --exclude-glob .git* public/ \"$DEST\""

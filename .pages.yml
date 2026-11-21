@@ -1,0 +1,49 @@
+# Pages CMS (https://pagescms.org): el cliente edita textos y entradas del blog desde el navegador, sin tocar Markdown ni git.
+# Cada cambio es un commit en este repositorio y GitHub Actions vuelve a generar y publicar la web (si algo no compila, la web
+# publicada no cambia y el aviso llega a quien administra el repositorio). Ver docs/cms.md.
+#
+# - Las páginas usan un campo de texto (no el editor visual) para no estropear los bloques :::hero, :::cards, :::catalogo…
+# - El blog sí usa el editor visual (Markdown normal).
+# - Una entrada por idioma: copiar los bloques de «es» para cada idioma de site.json > languages.
+media:
+  input: static/img
+  output: /img
+
+content:
+  - name: paginas-es
+    label: Páginas
+    type: collection
+    path: content/es
+    format: yaml-frontmatter
+    subfolders: false
+    view:
+      primary: title
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: description, label: Descripción para Google (máx. 155 caracteres), type: string, required: true }
+      - { name: key, label: Clave interna (no cambiar), type: string }
+      - { name: slug, label: Dirección (no cambiar sin redirección), type: string }
+      - { name: nav, label: Orden en el menú, type: number }
+      - { name: nav_title, label: Texto en el menú, type: string }
+      - { name: seo_title, label: Título para Google, type: string }
+      - { name: image, label: Imagen al compartir, type: image }
+      - { name: noindex, label: Ocultar a los buscadores, type: boolean }
+      - { name: body, label: Contenido, type: text }
+
+  - name: blog-es
+    label: Blog
+    type: collection
+    path: content/es/blog
+    filename: "{primary}.md"
+    format: yaml-frontmatter
+    view:
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - { name: title, label: Título, type: string, required: true }
+      - { name: description, label: Resumen (máx. 155 caracteres), type: string, required: true }
+      - { name: date, label: Fecha, type: date, required: true }
+      - { name: draft, label: Borrador (no se publica), type: boolean }
+      - { name: image, label: Imagen, type: image }
+      - { name: body, label: Texto, type: rich-text, options: { format: markdown } }

@@ -1,0 +1,11 @@
+public/
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+# Importaciones de otra web (tools/importar_wordpress.py): se revisan en local y se mueven a content/
+migracion/
+# Kit de marca generado (python tools/marca.py kit): se entrega al cliente, no se guarda aquí
+marca/entrega/
+marca/entrega-*.zip
+vista-previa/
