@@ -7,7 +7,10 @@ seo_title: Tiling, flooring and renovation projects | MAD Construcción
 description: Photos of kitchens, bathrooms, floors, terraces, roofs and partition walls by Miguel Ángel Díaz in Loja, Granada and Málaga. See the results and ask for a quote.
 ---
 
-Photos of our projects, some during the work and some finished.
+Photos of our projects, some during the work and some finished. Tap a photo to see it full size.
+
+:::indice
+:::
 
 :::cards comparar
 ## One kitchen, start to finish
@@ -34,7 +37,27 @@ Large-format grey porcelain wall tiles.
 :::cards galeria
 ## Kitchens and bathrooms
 
-Large-format porcelain, utility rooms and bathrooms.
+Large-format porcelain, metro tiles, utility rooms and bathrooms.
+
+### Bathroom with metro tiles
+![Bathroom tiled with white metro tiles, with the bath already fitted](/img/obras/bano-azulejo-metro-banera.webp)
+
+Bevelled white metro tiles.
+
+### Metro tile corner
+![Corner of a bathroom tiled with white metro tiles, with square finishing](/img/obras/bano-azulejo-metro-blanco.webp)
+
+Finishing at the corner.
+
+### Large format on walls
+![Walls tiled with light large-format pieces, next to a doorway](/img/obras/alicatado-gran-formato-pared-terminada.webp)
+
+Light large-format pieces.
+
+### Large format in progress
+![Wall being tiled with large-format pieces: combed tile adhesive and levelling clips](/img/obras/alicatado-gran-formato-cemento-cola.webp)
+
+Combed adhesive and levelling.
 
 ### Large-format wall tiles
 ![Wall tiled in large-format grey porcelain, with the water outlets ready](/img/obras/alicatado-porcelanico-gran-formato-gris.webp)
@@ -103,7 +126,17 @@ Combed adhesive over the old floor.
 :::cards galeria
 ## Terraces
 
-Wood-effect outdoor porcelain.
+Large-format and wood-effect outdoor porcelain.
+
+### Terrace with a view
+![Terrace with light large-format porcelain already laid and sea views](/img/obras/terraza-porcelanico-gran-formato-vistas.webp)
+
+Large-format porcelain.
+
+### Terrace with levelling
+![Terrace with large-format porcelain just laid, with the levelling system clips](/img/obras/terraza-porcelanico-gran-formato-nivelacion.webp)
+
+Just laid, with the levelling system.
 
 ### Finished terrace
 ![Terrace tiled with wood-effect porcelain, finished](/img/obras/terraza-porcelanico-imitacion-madera.webp)

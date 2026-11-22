@@ -6,7 +6,10 @@ seo_title: Trabajos de alicatado, solado y reformas | MAD Construcción
 description: Fotos de cocinas, baños, suelos, terrazas, tejados y tabiques hechos por Miguel Ángel Díaz en Loja, Granada y Málaga. Mira el resultado y pide presupuesto.
 ---
 
-Fotos de nuestras obras, algunas durante el trabajo y otras terminadas.
+Fotos de nuestras obras, algunas durante el trabajo y otras terminadas. Pulsa una foto para verla en grande.
+
+:::indice
+:::
 
 :::cards comparar
 ## Una cocina, de principio a fin
@@ -33,7 +36,27 @@ Alicatado en porcelánico gris de gran formato.
 :::cards galeria
 ## Cocinas y baños
 
-Porcelánico de gran formato, lavaderos y baños.
+Porcelánico de gran formato, azulejo metro, lavaderos y baños.
+
+### Baño con azulejo metro
+![Baño alicatado con azulejo metro blanco, con la bañera ya colocada](/img/obras/bano-azulejo-metro-banera.webp)
+
+Azulejo metro blanco biselado.
+
+### Esquina de azulejo metro
+![Esquina de un baño alicatada con azulejo metro blanco, con los remates a escuadra](/img/obras/bano-azulejo-metro-blanco.webp)
+
+Remates en la esquina.
+
+### Gran formato en pared
+![Paredes alicatadas con piezas claras de gran formato, junto a una puerta](/img/obras/alicatado-gran-formato-pared-terminada.webp)
+
+Piezas claras de gran formato.
+
+### Gran formato en obra
+![Pared alicatándose con piezas de gran formato: cemento cola peinado y cuñas de nivelación](/img/obras/alicatado-gran-formato-cemento-cola.webp)
+
+Cemento cola peinado y nivelación.
 
 ### Alicatado de gran formato
 ![Pared alicatada con porcelánico gris de gran formato, con las tomas de agua ya preparadas](/img/obras/alicatado-porcelanico-gran-formato-gris.webp)
@@ -102,7 +125,17 @@ Adhesivo peinado sobre el suelo antiguo.
 :::cards galeria
 ## Terrazas
 
-Porcelánico de exterior imitación madera.
+Porcelánico de exterior en gran formato y en imitación madera.
+
+### Terraza con vistas
+![Terraza con porcelánico claro de gran formato ya colocado y vistas al mar](/img/obras/terraza-porcelanico-gran-formato-vistas.webp)
+
+Porcelánico de gran formato.
+
+### Terraza con nivelación
+![Terraza de porcelánico de gran formato recién colocado, con las cuñas del sistema de nivelación](/img/obras/terraza-porcelanico-gran-formato-nivelacion.webp)
+
+Recién colocada, con el sistema de nivelación.
 
 ### Terraza terminada
 ![Terraza solada con porcelánico imitación madera, terminada](/img/obras/terraza-porcelanico-imitacion-madera.webp)

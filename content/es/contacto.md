@@ -22,6 +22,10 @@ Rellena lo que sepas y pulsa «Enviar por WhatsApp»: se abrirá con el mensaje 
 Si lo prefieres, llámanos o escríbenos directamente.
 :::
 
+:::split
 ## Dónde trabajamos
 
-En Loja y alrededores, y en Granada, Málaga y sus alrededores.
+En Loja y alrededores, y en Granada, Málaga y sus alrededores. Si tu obra está cerca y no sabes si llegamos, pregúntanos.
+
+![Mapa orientativo de la zona de trabajo: Loja en el centro, Granada a unos 55 km y Málaga a unos 70 km, con la zona de alrededor marcada](/img/zona-de-trabajo.svg)
+:::

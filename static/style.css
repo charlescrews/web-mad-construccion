@@ -336,6 +336,58 @@ main:has(> .cta:last-child) { padding-bottom: 0; }
 .cards-comparar > .card h3 { position: absolute; top: .75rem; left: .75rem; z-index: 1; margin: 0; padding: .3rem .75rem; font-size: .95rem;
   background: var(--primary); color: var(--primary-ink); border-radius: var(--radius); }
 .cards-comparar > .card p:not(:has(img)) { font-size: .95rem; color: var(--muted); }
+/* piezas: datos cortos como baldosas de color unidas por una junta; ### es la cifra grande (20+, 0 €) y debajo una línea.
+   Colores en --pieza-1…4 (por defecto, el corporativo y tres tintes suyos); el texto, en --pieza-1-ink… */
+.cards-piezas { --pieza-1: var(--primary); --pieza-1-ink: var(--primary-ink);
+  --pieza-2: color-mix(in srgb, var(--primary) 10%, var(--surface)); --pieza-3: color-mix(in srgb, var(--primary) 20%, var(--surface));
+  --pieza-4: color-mix(in srgb, var(--primary) 30%, var(--surface)); --pieza-ink: var(--ink);
+  gap: 3px; grid-template-columns: repeat(2, 1fr); }
+.cards-piezas > .card { display: flex; flex-direction: column; justify-content: flex-end; aspect-ratio: 1; min-width: 0; container-type: inline-size;
+  padding: clamp(1rem, 3vw, 1.75rem); border: 0; border-radius: 0; background: var(--pieza-2); color: var(--pieza-ink); }
+.cards-piezas > .card:nth-child(4n+1) { background: var(--pieza-1); color: var(--pieza-1-ink); }
+.cards-piezas > .card:nth-child(4n+3) { background: var(--pieza-3); }
+.cards-piezas > .card:nth-child(4n) { background: var(--pieza-4); }
+.cards-piezas > .card:first-child { border-top-left-radius: var(--radius); }
+.cards-piezas > .card .pieza-cifra { font: 800 min(4.75rem, 34cqi)/0.95 var(--font-heading); letter-spacing: -0.02em; margin: 0 0 auto; }
+.cards-piezas > .card .pieza-cifra-larga { font-size: min(3.25rem, 19cqi); line-height: 1; }
+.cards-piezas > .card p:not(.pieza-cifra) { margin: .75rem 0 0; color: inherit; font-size: clamp(.95rem, 1.6vw, 1.05rem); max-width: 22ch; }
+@media (min-width: 48rem) { .cards-piezas { grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); } }
+/* Fotos que se amplían (static/galeria.js): la foto es un botón; el visor es un <dialog> a pantalla completa. */
+.foto-ampliar { display: block; width: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; border-radius: var(--radius); }
+.foto-ampliar img { display: block; margin: 0; }
+.foto-ampliar:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.cards-galeria .foto-ampliar, .cards-comparar .foto-ampliar { margin-bottom: .75rem; }
+.cards-galeria .foto-ampliar img, .cards-comparar .foto-ampliar img { margin-bottom: 0; }
+dialog.visor { width: 100vw; max-width: none; height: 100dvh; max-height: none; margin: 0; padding: 0; border: 0;
+  background: rgba(17, 19, 22, .96); color: #F7F5F2; }
+dialog.visor::backdrop { background: rgba(17, 19, 22, .96); }
+.visor-foto { position: absolute; inset: 3.5rem 4rem 4rem; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; pointer-events: none; }
+.visor-foto img { max-width: 100%; max-height: calc(100% - 3rem); width: auto; height: auto; object-fit: contain; border-radius: 4px; pointer-events: auto; }
+.visor-foto figcaption { max-width: 60ch; text-align: center; font-size: .95rem; line-height: 1.4; color: #E6E2DD; }
+.visor button { position: absolute; display: grid; place-items: center; width: 3rem; height: 3rem; padding: 0; border: 0; border-radius: 50%;
+  background: rgba(255, 255, 255, .12); color: #fff; font: 400 2rem/1 system-ui, sans-serif; cursor: pointer; }
+.visor button:hover { background: rgba(255, 255, 255, .22); }
+.visor button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+.visor-cerrar { top: .75rem; right: .75rem; }
+.visor-ant { left: .75rem; top: 50%; transform: translateY(-50%); }
+.visor-sig { right: .75rem; top: 50%; transform: translateY(-50%); }
+.visor-una .visor-ant, .visor-una .visor-sig, .visor-una .visor-cuenta { display: none; }
+.visor-cuenta { position: absolute; top: 1.4rem; left: 1rem; margin: 0; font-size: .9rem; color: #E6E2DD; }
+@media (max-width: 40rem) { .visor-foto { inset: 3.75rem .5rem 4.5rem; } .visor-ant, .visor-sig { top: auto; bottom: .75rem; transform: none; } .visor-ant { left: calc(50% - 3.5rem); } .visor-sig { right: calc(50% - 3.5rem); } }
+/* :::indice: enlaces a los apartados de la página, en una fila que se desliza en el móvil. */
+.section.indice { padding-block: 0 clamp(1.75rem, 4vw, 2.75rem); }
+/* Mapas y esquemas en SVG: enteros, sin el recorte de las fotos. */
+.split-media img[src$=".svg"], .split-media img[src^="data:image/svg"] { aspect-ratio: auto; height: auto; object-fit: contain; }
+.indice > p { margin: 0 0 .6rem; color: var(--muted); }
+.indice ul { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.indice a { display: inline-flex; align-items: center; min-height: 2.75rem; padding: .4rem 1rem; border: 1px solid var(--rule); border-radius: 999px;
+  background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 600; font-size: .95rem; }
+.indice a:hover { border-color: var(--ink); }
+@media (max-width: 40rem) { .indice ul { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .5rem; scrollbar-width: thin; } .indice a { white-space: nowrap; } }
+/* Vídeos cortos de obra (![texto](/video/x.mp4)): se reproducen al pulsarlos, con su fotograma de portada. */
+.card video, .prose video, .split-media video { display: block; width: 100%; height: auto; border-radius: var(--radius); background: #111; }
+.cards-galeria .card video { aspect-ratio: 9 / 16; object-fit: cover; margin-bottom: .75rem; }
+.cards-galeria:has(video) { grid-template-columns: repeat(auto-fill, minmax(min(45%, 15rem), 1fr)); }
 .banda-oscura :is(.cards-galeria, .cards-comparar, .cards-datos) > .card { background: none; border: 0; color: inherit; }
 .banda-oscura :is(.cards-galeria, .cards-comparar, .cards-datos) > .card p:not(:has(img)) { color: inherit; }
 
@@ -369,11 +421,14 @@ main:has(> .cta:last-child) { padding-bottom: 0; }
 @media (min-width: 56rem) { .hero-grid { grid-template-columns: 1.35fr 1fr; } }
 /* Cliente (ronda 4, a partir del análisis de competidores): portada con franja de datos reales, servicios como piezas con junta
    y fotos más grandes. La foto de portada algo más alta, como las fotos de obra (verticales, del móvil). */
-/* La franja de datos sigue el fondo de la portada de lado a lado y cierra la portada con su línea. */
-.hero:has(+ .section-datos) { border-bottom: 0; padding-bottom: clamp(2rem, 5vw, 3.5rem); }
-.hero + .section-datos { background: var(--surface); box-shadow: 0 0 0 100vmax var(--surface); clip-path: inset(0 -100vmax); }
-.hero + .section-datos .cards-datos { border-top: 1px solid var(--rule); border-bottom: 0; }
-.section-datos + .section { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+/* Ronda 5: los datos de la portada como cuatro baldosas con los colores del logo (el símbolo son cuatro piezas): la cifra
+   grande da carácter a «20+», «0 €»… Van pegadas a la portada, sobre el mismo fondo, y la junta es el color del papel. */
+.hero:has(+ .section-piezas) { border-bottom: 0; padding-bottom: clamp(1.5rem, 4vw, 2.5rem); }
+.hero + .section-piezas { padding-block: 0 clamp(2rem, 5vw, 3.5rem); background: var(--surface); box-shadow: 0 0 0 100vmax var(--surface); clip-path: inset(0 -100vmax); }
+.hero + .section-piezas .cards-piezas { background: var(--surface); }
+.section-piezas + .section { padding-top: clamp(2.5rem, 6vw, 4.5rem); border-top: 1px solid var(--rule); }
+.cards-piezas { --pieza-1: #23282E; --pieza-1-ink: #F7F5F2; --pieza-2: #D9D5D1; --pieza-3: #A99B8B; --pieza-4: #B4AEA7; --pieza-ink: #1F2328; }
+@media (min-width: 48rem) { .cards-piezas > .card { aspect-ratio: 5 / 4; } }
 .hero-media img { aspect-ratio: 5 / 4; }
 .cards-juntas > .card { padding: 1.75rem; }
 .cards-juntas .card h3 { font-size: 1.15rem; }

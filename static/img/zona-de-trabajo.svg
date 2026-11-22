@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 554" role="img" aria-labelledby="t">
+<title id="t">Mapa orientativo: Loja, Granada, Málaga y alrededores</title>
+<rect width="640" height="554" fill="#F7F5F2"/>
+<path d="M51.8,135.6 Q75.3,70.7 197.6,53.0 Q320.0,35.4 442.4,44.2 Q564.7,53.0 588.2,100.2 Q611.8,147.3 578.8,191.5 Q545.9,235.7 461.2,271.1 Q376.5,306.5 324.7,341.8 Q272.9,377.2 235.3,406.7 Q197.6,436.1 150.6,442.0 Q103.5,447.9 80.0,389.0 Q56.5,330.0 42.4,265.2 Q28.2,200.4 51.8,135.6 Z" fill="#A99B8B" fill-opacity=".22" stroke="#A99B8B" stroke-width="2" stroke-dasharray="7 6"/>
+<path d="M-9.4,542.2 L75.3,518.6 L98.8,489.2 L131.8,471.5 L169.4,415.5 L207.1,412.6 L235.3,415.5 L324.7,400.8 L423.5,397.8 L489.4,403.7 L512.9,406.7 L560.0,397.8 L592.9,412.6 L649.4,424.3 L650,564 L-10,564 Z" fill="#DCE1E3"/>
+<path d="M-9.4,542.2 L75.3,518.6 L98.8,489.2 L131.8,471.5 L169.4,415.5 L207.1,412.6 L235.3,415.5 L324.7,400.8 L423.5,397.8 L489.4,403.7 L512.9,406.7 L560.0,397.8 L592.9,412.6 L649.4,424.3" fill="none" stroke="#C3CBCF" stroke-width="2"/>
+<path d="M295.5,148.5 L556.2,143.2 M295.5,148.5 L168.9,412.0" stroke="#23282E" stroke-width="2.5" stroke-dasharray="2 7" stroke-linecap="round" fill="none"/>
+<text x="425.9" y="133.9" font-family="Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#4A4F55" text-anchor="middle" stroke="#F7F5F2" stroke-width="5" stroke-linejoin="round" paint-order="stroke">≈ 55 km</text>
+<text x="194.2" y="280.2" font-family="Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="600" fill="#4A4F55" text-anchor="middle" stroke="#F7F5F2" stroke-width="5" stroke-linejoin="round" paint-order="stroke">≈ 70 km</text>
+<circle cx="556.2" cy="143.2" r="8" fill="#23282E"/>
+<circle cx="168.9" cy="412.0" r="8" fill="#23282E"/>
+<circle cx="295.5" cy="148.5" r="34" fill="#23282E"/>
+<path d="M295.5,124.9 L306.2,135.5 L295.5,146.2 L284.9,135.5 Z" fill="#A99B8B"/><path d="M282.5,137.9 L293.2,148.5 L282.5,159.2 L271.9,148.5 Z" fill="#D9D5D1"/><path d="M308.5,137.9 L319.2,148.5 L308.5,159.2 L297.9,148.5 Z" fill="#B4AEA7"/><path d="M295.5,150.9 L306.2,161.5 L295.5,172.2 L284.9,161.5 Z" fill="#B4AEA7"/>
+<text x="295.5" y="102.5" font-family="Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="26" font-weight="800" fill="#1F2328" text-anchor="middle" stroke="#F7F5F2" stroke-width="5" stroke-linejoin="round" paint-order="stroke">Loja</text>
+<text x="556.2" y="125.2" font-family="Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#1F2328" text-anchor="middle" stroke="#F7F5F2" stroke-width="5" stroke-linejoin="round" paint-order="stroke">Granada</text>
+<text x="184.9" y="400.0" font-family="Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="22" font-weight="700" fill="#1F2328" text-anchor="start" stroke="#F7F5F2" stroke-width="5" stroke-linejoin="round" paint-order="stroke">Málaga</text>
+<text x="616.0" y="528.0" font-family="Montserrat, 'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="500" fill="#5C666B" text-anchor="end" stroke="#F7F5F2" stroke-width="5" stroke-linejoin="round" paint-order="stroke">Mar Mediterráneo</text>
+</svg>

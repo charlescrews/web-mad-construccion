@@ -13,6 +13,22 @@ I'm Miguel Ángel Díaz and I've been in the building trade for over 20 years, s
 
 I set up MAD Construcción to take on complete renovations without losing what I do best: tiling done properly. I work in Loja and the surrounding area, and in Granada, Málaga and their surroundings.
 
+:::cards galeria
+## On the job
+
+This is how Miguel Ángel works. Tap to play the videos (no sound).
+
+### Tiling a hallway
+![Video: Miguel Ángel laying the floor tiles in a hallway](/video/solado-pasillo-en-obra.mp4)
+
+Laying the tiles one by one.
+
+### Adhesive and tiles
+![Sped-up video: Miguel Ángel combing the tile adhesive and laying tiles on a living room floor](/video/colocacion-piezas-camara-rapida.mp4)
+
+Sped up.
+:::
+
 ## How we work
 
 - We explain what we're going to do before we start.

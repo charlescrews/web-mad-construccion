@@ -612,6 +612,27 @@ def responsive(tag: str, where: str = "prose") -> str:
         return tag
     src = m.group(1)
     f = STATIC / src.lstrip("/")
+    if f.suffix.lower() in (".mp4", ".webm") and f.is_file():
+        # Vídeo corto de obra con ![texto](/video/x.mp4): se reproduce al pulsarlo (nada se mueve solo), sin sonido y sin
+        # descargar nada hasta entonces. Necesita un fotograma con el mismo nombre (x.webp o x.jpg) para medidas y portada.
+        poster = next((f.with_suffix(e) for e in (".webp", ".jpg") if f.with_suffix(e).is_file()), None)
+        dims = image_size(poster) if poster else None
+        if not dims:
+            sys.exit(f"ERROR: el vídeo {src} necesita su fotograma de portada {Path(src).with_suffix('.webp')} (o .jpg)")
+        alt = re.search(r'\salt="([^"]*)"', tag)
+        etiqueta = f' aria-label="{alt.group(1)}"' if alt and alt.group(1) else ""
+        tipo = "video/mp4" if f.suffix.lower() == ".mp4" else "video/webm"
+        psrc = "/" + poster.relative_to(STATIC).as_posix()
+        # Sin pista de sonido (caja hdlr de tipo «soun» en el MP4) no hacen falta subtítulos: se marca para check.py (WCAG 1.2.2).
+        sin_voz = "" if re.search(rb"hdlr.{8}soun", f.read_bytes(), re.S) else " data-sin-voz"
+        return (f'<video controls muted playsinline preload="none" poster="{psrc}" width="{dims[0]}" height="{dims[1]}"{etiqueta}{sin_voz}>'
+                f'<source src="{src}" type="{tipo}"></video>')
+    if f.suffix.lower() == ".svg" and f.is_file():
+        # SVG (mapas, esquemas): el tamaño sale del viewBox; sin variantes, se ve nítido a cualquier ancho.
+        vb = re.search(r'viewBox="\s*[-\d.]+[\s,]+[-\d.]+[\s,]+([\d.]+)[\s,]+([\d.]+)', f.read_text(encoding="utf-8", errors="ignore")[:2000])
+        if vb:
+            return tag[:-1].rstrip("/").rstrip() + f' width="{round(float(vb.group(1)))}" height="{round(float(vb.group(2)))}"' + (" />" if tag.endswith("/>") else ">")
+        return tag
     if f.suffix.lower() not in (".webp", ".jpg", ".jpeg", ".png", ".gif") or not f.is_file():
         return tag
     wh = image_size(f)
@@ -972,9 +993,13 @@ BLOCK_RE = re.compile(r"^:::([a-z]+)((?:[ \t]+[a-z]+)*)[ \t]*\n(.*?)^:::[ \t]*$"
 # Variantes de bloque (`:::hero banda`): portada a todo el ancho y oscura (con foto de fondo o sin ella), tarjetas sobre banda oscura e
 # imagen y texto en paralelo (`inverso` pone la imagen a la derecha). Composiciones de tarjetas: `juntas` (piezas unidas por una junta
 # fina, como un alicatado), `datos` (franja de datos cortos sin caja), `galeria` (fotos grandes sin marco, la primera destacada) y
-# `comparar` (fotos del mismo tamaño en paralelo: antes y después). Una variante desconocida para la web (una errata no pasa sin avisar).
-CARD_LAYOUTS = ("juntas", "datos", "galeria", "comparar")
-BLOCK_MODS = {"hero": {"banda"}, "cards": {"oscuro", *CARD_LAYOUTS}, "split": {"inverso"}, "presupuesto": set()}
+# `comparar` (fotos del mismo tamaño en paralelo: antes y después) y `piezas` (datos cortos como baldosas de color: ### cifra grande
+# y una línea). Una variante desconocida para la web (una errata no pasa sin avisar).
+CARD_LAYOUTS = ("juntas", "datos", "galeria", "comparar", "piezas")
+BLOCK_MODS = {"hero": {"banda"}, "cards": {"oscuro", *CARD_LAYOUTS}, "split": {"inverso"}, "presupuesto": set(), "indice": set()}
+# :::indice (vacío o con una frase): fila de enlaces a los apartados (##) que vienen después en la página, salvo las bandas de llamada
+# a la acción. Útil en páginas largas como la de trabajos: el visitante salta a «Suelos» o «Tejados» sin desplazarse.
+INDICE = "<!--indice-->"
 
 
 def render_body(body: str, lang: str, page_url: str = "") -> str:
@@ -1011,9 +1036,15 @@ def render_body(body: str, lang: str, page_url: str = "") -> str:
             h = md(inner, lang)
             head, *cards = re.split(r"(?=<h3)", h)
             layouts = [m_ for m_ in CARD_LAYOUTS if m_ in mods]
-            if "datos" in layouts:
+            if "datos" in layouts or "piezas" in layouts:
                 # Datos cortos, no apartados: el ### se queda en texto destacado y no rompe el orden de los encabezados.
-                cards = [re.sub(r"<h3[^>]*>(.*?)</h3>", r'<p class="dato">\1</p>', c, flags=re.S) for c in cards]
+                def dato(m_):
+                    if "datos" in layouts:
+                        return f'<p class="dato">{m_.group(1)}</p>'
+                    # En piezas, una palabra larga («Por escrito») va en un cuerpo menor para no partirse a media palabra.
+                    largo = max(len(w) for w in re.sub(r"<[^>]+>", "", m_.group(1)).split() or [""]) > 5
+                    return f'<p class="pieza-cifra{" pieza-cifra-larga" if largo else ""}">{m_.group(1)}</p>'
+                cards = [re.sub(r"<h3[^>]*>(.*?)</h3>", dato, c, flags=re.S) for c in cards]
             cards_html = "".join(f'<div class="card">{responsive_all(c, "card")}</div>' for c in cards)
             if len(layouts) > 1:
                 sys.exit(f"ERROR: :::cards con dos composiciones a la vez: {', '.join(layouts)} (elige una)")
@@ -1053,6 +1084,8 @@ def render_body(body: str, lang: str, page_url: str = "") -> str:
                 sys.exit("ERROR: bloque :::boletin sin site.json > crm.boletin (endpoint de la plantilla C)")
             head = md(inner, lang) if inner.strip() else ""
             parts.append(f'<section class="section wrap newsletter-section" id="boletin"><div class="newsletter-grid"><div>{head}</div>{newsletter_block(lang, page_url)}</div></section>')
+        elif name == "indice":
+            parts.append(INDICE + (md(inner, lang) if inner.strip() else ""))
         elif name == "contact":
             head = md(inner, lang) if inner.strip() else ""
             parts.append(f'<section class="section wrap" id="contacto">{head}{contact_block(lang)}</section>')
@@ -1062,6 +1095,14 @@ def render_body(body: str, lang: str, page_url: str = "") -> str:
     rest = body[pos:]
     if rest.strip():
         parts.append(f'<section class="section prose wrap">{responsive_all(md(rest, lang))}</section>')
+    for i, part in enumerate(parts):
+        if part.startswith(INDICE):
+            enlaces = [(hid, re.sub(r"<[^>]+>", "", txt).strip()) for later in parts[i + 1:] if not later.startswith('<section class="cta')
+                       for hid, txt in re.findall(r'<h2 id="([^"]+)"[^>]*>(.*?)</h2>', later, re.S)]
+            frase = part[len(INDICE):]
+            etiqueta = {"es": "Apartados de esta página", "en": "Sections on this page"}.get(lang, "Apartados")
+            lis = "".join(f'<li><a href="#{hid}">{txt}</a></li>' for hid, txt in enlaces)
+            parts[i] = f'<nav class="section wrap indice" aria-label="{etiqueta}">{frase}<ul>{lis}</ul></nav>'
     return "\n".join(parts)
 
 
@@ -1308,6 +1349,7 @@ def build_page(pg: dict) -> None:
     doc = head(lang=lang, title=title, desc=pg["description"], url=url, alts=alternates(key),
                jsonld=jsonld, noindex=pg.get("noindex") == "true", image=pg.get("image"))
     extra = (CATALOG_JS if ":::catalogo" in pg["body"] else "") + (PRES_JS if re.search(r"^:::presupuesto\b", pg["body"], re.M) else "")
+    extra += GALERIA_JS if re.search(r"^:::cards\b[^\n]*\b(galeria|comparar)\b", pg["body"], re.M) else ""
     # `barra_movil: false` en la cabecera de la página: sin la barra fija en esa página (p. ej. la del formulario de presupuesto, que ya
     # tiene sus botones). Otro valor que no sea true/false es una errata y no se publica.
     barra = pg.get("barra_movil", "true")
@@ -1358,6 +1400,7 @@ def build_blog(lang: str) -> None:
 CATALOG_JS = '<script src="/catalogo.js" defer></script>\n'
 PRES_JS = '<script src="/presupuesto.js" defer></script>\n'
 IDIOMA_JS = '<script src="/idioma.js" defer></script>\n'
+GALERIA_JS = '<script src="/galeria.js" defer></script>\n'  # ampliar fotos de :::cards galeria / comparar
 API_ATTR = f' data-api="{esc(CAT_API)}"' if CAT_API else ""
 
 

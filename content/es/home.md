@@ -15,18 +15,18 @@ Más de 20 años alicatando paredes, colocando suelos y haciendo reformas. Cuén
 ![Cocina reformada con las paredes alicatadas en porcelánico gris de gran formato](/img/obras/portada-cocina-reformada.webp)
 :::
 
-:::cards datos
-### Más de 20 años
-alicatando, solando y reformando.
+:::cards piezas
+### 20+
+años alicatando, solando y reformando.
 
-### Loja, Granada y Málaga
-y sus alrededores.
+### Loja
+Granada, Málaga y sus alrededores.
 
-### Presupuesto gratis
-y sin compromiso, también por WhatsApp.
+### 0 €
+cuesta el presupuesto, y sin compromiso.
 
-### Garantía por escrito
-y la obra limpia al terminar.
+### Por escrito
+la garantía. Y la obra, limpia al terminar.
 :::
 
 :::cards juntas
@@ -77,9 +77,9 @@ Paredes en porcelánico de gran formato.
 Fotos de obras nuestras. [Ver todos los trabajos](@trabajos)
 
 ### Terraza
-![Terraza solada con porcelánico imitación madera](/img/obras/terraza-porcelanico-imitacion-madera.webp)
+![Terraza con porcelánico claro de gran formato ya colocado y vistas al mar](/img/obras/terraza-porcelanico-gran-formato-vistas.webp)
 
-Porcelánico imitación madera, apto para exterior.
+Porcelánico de gran formato en exterior.
 
 ### Pasillo
 ![Pasillo con suelo nuevo de porcelánico claro en piezas grandes](/img/obras/pasillo-suelo-porcelanico.webp)
@@ -87,9 +87,9 @@ Porcelánico imitación madera, apto para exterior.
 Suelo de porcelánico claro en piezas grandes.
 
 ### Baño
-![Baño alicatado en tonos claros, con el suelo y las paredes terminados](/img/obras/bano-alicatado.webp)
+![Baño alicatado con azulejo metro blanco, con la bañera ya colocada](/img/obras/bano-azulejo-metro-banera.webp)
 
-Paredes y suelo en tonos claros.
+Azulejo metro blanco.
 
 ### Tejado
 ![Tejado con teja nueva colocada](/img/obras/retejado-de-cubierta.webp)
@@ -105,6 +105,18 @@ Retejado de cubierta.
 4. **Hacemos el trabajo**, con garantía por escrito, y te dejamos la obra limpia y lista para usar.
 
 Mira todo lo que hacemos en [servicios](@servicios) o más fotos de obras en [trabajos](@trabajos).
+
+:::split
+## Dónde trabajamos
+
+Salimos desde Loja. Trabajamos en Loja y sus alrededores, y en Granada, Málaga y sus alrededores.
+
+Si tu obra está cerca y no sabes si llegamos, pregúntanos sin compromiso.
+
+[Pide presupuesto gratis](@contacto)
+
+![Mapa orientativo de la zona de trabajo: Loja en el centro, Granada a unos 55 km y Málaga a unos 70 km, con la zona de alrededor marcada](/img/zona-de-trabajo.svg)
+:::
 
 :::cta
 ## ¿Tienes una obra en mente?

@@ -10,14 +10,16 @@ Solo en la vista previa: lo que falta confirmar se ve como una nota «Pendiente�
 Los [CONFIRMAR] siguen en la web real y check.py --release no la publica mientras quede alguno.
 """
 import base64
+import json
 import re
 import sys
 from pathlib import Path
 
 pub, out = Path(sys.argv[1]), Path(sys.argv[2])
 SIN_PENDIENTES = "--sin-pendientes" in sys.argv[3:]
-MIME = {".svg": "image/svg+xml", ".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg", ".woff2": "font/woff2"}
-PROPIOS = ("presupuesto.js", "idioma.js")  # scripts propios que se meten en línea si alguna página los usa
+MIME = {".svg": "image/svg+xml", ".webp": "image/webp", ".png": "image/png", ".jpg": "image/jpeg", ".woff2": "font/woff2", ".mp4": "video/mp4", ".webm": "video/webm"}
+VIDEOS = {}  # vídeos de las páginas: se meten una sola vez en el archivo aunque salgan en las dos lenguas
+PROPIOS = ("presupuesto.js", "idioma.js", "galeria.js")  # scripts propios que se meten en línea si alguna página los usa
 
 # Páginas: cada index.html de public/ (la portada de cada idioma incluida), menos las de servicio sin contenido para el cliente.
 OMITIR = {"pedido", "order", "gracias", "thanks", "offline"}
@@ -48,6 +50,11 @@ def enlaces(h):
     h = re.sub(r'\s(srcset|sizes)="[^"]*"', "", h)
     # La ruta original se guarda en data-src: los estilos que dependen de ella (img[src*="/iconos/"]) siguen valiendo.
     h = re.sub(r'src="(/[^"]+\.(?:svg|webp|png|jpg))"', lambda m: f'data-src="{m.group(1)}" src="{data_uri(variante_ligera(m.group(1)))}"', h)
+    h = re.sub(r'poster="(/[^"]+)"', lambda m: f'poster="{data_uri(m.group(1))}"', h)
+    def video(m):
+        VIDEOS.setdefault(m.group(1), data_uri(m.group(1)))
+        return f'<source data-video="{m.group(1)}"'
+    h = re.sub(r'<source src="(/[^"]+\.(?:mp4|webm))"', video, h)
     nota = "" if SIN_PENDIENTES else r'<mark class="pendiente">Pendiente: \1</mark>'
     h = re.sub(r">([^<]+)", lambda t: ">" + re.sub(r"\s*\[CONFIRMAR:\s*([^\]]*)\]" if SIN_PENDIENTES else r"\[CONFIRMAR:\s*([^\]]*)\]", nota, t.group(1)), h)
     return h
@@ -99,6 +106,7 @@ mark.pendiente{{background:#F3E9D2;color:#3D3424;border:1px dashed #A99B8B;borde
 {"" if SIN_PENDIENTES else '<p class="aviso-previa">Vista previa para revisar. Lo marcado «Pendiente» espera tus respuestas.</p>'}
 {''.join(vistas)}
 {propios}
+{"<script>(function(){var V=" + json.dumps(VIDEOS) + ";document.querySelectorAll('source[data-video]').forEach(function(s){s.src=V[s.getAttribute('data-video')];s.parentNode.load();});})();</script>" if VIDEOS else ""}
 <script>
 (function () {{
   var vistas = document.querySelectorAll('.vista');

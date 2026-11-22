@@ -15,18 +15,18 @@ Over 20 years tiling walls, laying floors and renovating homes. Tell us what you
 ![Renovated kitchen with the walls tiled in large-format grey porcelain](/img/obras/portada-cocina-reformada.webp)
 :::
 
-:::cards datos
-### Over 20 years
-tiling walls, laying floors and renovating.
+:::cards piezas
+### 20+
+years tiling walls, laying floors and renovating.
 
-### Loja, Granada and Málaga
-and the surrounding areas.
+### Loja
+Granada, Málaga and the surrounding areas.
 
-### Free quotes
-with no obligation, also on WhatsApp.
+### €0
+for your quote, with no obligation.
 
-### Written guarantee
-and we leave the site clean.
+### In writing
+our guarantee. And we leave the site clean.
 :::
 
 :::cards juntas
@@ -77,9 +77,9 @@ Walls in large-format porcelain.
 Photos of our projects. [See all our work](@trabajos)
 
 ### Terrace
-![Terrace tiled with wood-effect porcelain](/img/obras/terraza-porcelanico-imitacion-madera.webp)
+![Terrace with light large-format porcelain already laid and sea views](/img/obras/terraza-porcelanico-gran-formato-vistas.webp)
 
-Wood-effect porcelain suitable for outdoors.
+Large-format porcelain outdoors.
 
 ### Hallway
 ![Hallway with a new floor of light large porcelain tiles](/img/obras/pasillo-suelo-porcelanico.webp)
@@ -87,9 +87,9 @@ Wood-effect porcelain suitable for outdoors.
 Light porcelain floor in large tiles.
 
 ### Bathroom
-![Bathroom tiled in light tones, with the floor and walls finished](/img/obras/bano-alicatado.webp)
+![Bathroom tiled with white metro tiles, with the bath already fitted](/img/obras/bano-azulejo-metro-banera.webp)
 
-Walls and floor in light tones.
+White metro tiles.
 
 ### Roof
 ![Roof with new tiles laid](/img/obras/retejado-de-cubierta.webp)
@@ -105,6 +105,18 @@ Re-roofing.
 4. **We do the work**, with a written guarantee, and leave everything clean and ready to use.
 
 See everything we do on our [services](@servicios) page or more project photos in [our work](@trabajos).
+
+:::split
+## Where we work
+
+We're based in Loja. We work in Loja and the surrounding area, and in Granada, Málaga and their surroundings.
+
+If your project is nearby and you're not sure whether we cover it, just ask.
+
+[Request a free quote](@contacto)
+
+![Approximate map of our work area: Loja in the middle, Granada about 55 km away and Málaga about 70 km away, with the surrounding area marked](/img/work-area-map.svg)
+:::
 
 :::cta
 ## Have a project in mind?

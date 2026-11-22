@@ -24,6 +24,10 @@ Fill in what you know and tap «Send on WhatsApp»: it will open with the messag
 If you prefer, call or message us directly.
 :::
 
+:::split
 ## Where we work
 
-Loja and the surrounding area, and Granada, Málaga and their surroundings.
+Loja and the surrounding area, and Granada, Málaga and their surroundings. If your project is nearby and you're not sure whether we cover it, just ask.
+
+![Approximate map of our work area: Loja in the middle, Granada about 55 km away and Málaga about 70 km away, with the surrounding area marked](/img/work-area-map.svg)
+:::

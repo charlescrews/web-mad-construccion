@@ -161,6 +161,43 @@ class Generacion(unittest.TestCase):
         self.assertEqual(ld["areaServed"], [{"@type": "City", "name": "Loja"}, {"@type": "City", "name": "Granada"}])
         self.assertEqual(ld["alternateName"], ["Demo"])
 
+    def test_piezas_con_cifra_grande(self):
+        home = PORTADA.replace(":::cards oscuro\n## Qué hacemos\n\n", ":::cards piezas\n").replace("### Alicatados", "### 20+").replace("### Solados", "### Por escrito")
+        h = self.build_ok(home=home).read("index.html")
+        self.assertIn('<section class="section wrap section-piezas"><div class="cards cards-piezas"><div class="card"><p class="pieza-cifra">20+</p>', h)
+        self.assertIn('<p class="pieza-cifra pieza-cifra-larga">Por escrito</p>', h)
+        self.assertNotIn("<h3", h.split("section-piezas")[1].split("</section>")[0])
+
+    def test_indice_de_apartados_y_visor_de_fotos(self):
+        home = PORTADA.replace(":::cards oscuro\n", ":::indice\n:::\n\n:::cards galeria\n")
+        h = self.build_ok(home=home).read("index.html")
+        self.assertIn('<nav class="section wrap indice" aria-label="Apartados de esta página"><ul><li><a href="#que-hacemos">Qué hacemos</a></li>', h)
+        self.assertNotIn('<nav class="section wrap indice" aria-label="Apartados de esta página"><ul></ul>', h)
+        self.assertIn('<script src="/galeria.js" defer></script>', h)
+
+    def test_svg_con_medidas_del_viewbox(self):
+        s = sitio(home=PORTADA + "\n:::split\n## Zona\n\n![Mapa](/img/mapa.svg)\n:::\n")
+        self.addCleanup(s.cleanup)
+        (s.dir / "static" / "img").mkdir(parents=True, exist_ok=True)
+        (s.dir / "static" / "img" / "mapa.svg").write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 554"><title>Mapa</title></svg>', encoding="utf-8")
+        code, out = s.build()
+        self.assertEqual(code, 0, out)
+        self.assertIn('src="/img/mapa.svg" width="640" height="554"', s.read("index.html"))
+
+    def test_video_de_obra_con_portada_y_sin_voz(self):
+        import shutil
+        s = sitio(home=PORTADA + "\n:::cards galeria\n## En obra\n\n### Solando\n![Vídeo: solando un pasillo](/video/obra.mp4)\n\nUna a una.\n:::\n")
+        self.addCleanup(s.cleanup)
+        v = s.dir / "static" / "video"
+        v.mkdir(parents=True, exist_ok=True)
+        (v / "obra.mp4").write_bytes(b"\x00\x00\x00\x20ftypisom" + b"hdlr" + b"\x00" * 8 + b"vide")  # sin pista de sonido
+        from PIL import Image
+        Image.new("RGB", (478, 850), "gray").save(v / "obra.webp")
+        code, out = s.build()
+        self.assertEqual(code, 0, out)
+        h = s.read("index.html")
+        self.assertIn('<video controls muted playsinline preload="none" poster="/video/obra.webp" width="478" height="850" aria-label="Vídeo: solando un pasillo" data-sin-voz><source src="/video/obra.mp4" type="video/mp4"></video>', h)
+
     def test_barra_movil_con_llamar_y_whatsapp(self):
         co = {**_company(), "whatsapp": "+34 600 000 002"}
         h = self.build_ok(company=co, barra_movil={"activa": True}).read("contacto/index.html")

@@ -12,6 +12,22 @@ Soy Miguel Ángel Díaz y llevo más de 20 años en el sector de la construcció
 
 He formado MAD Construcción para hacer reformas completas sin perder lo que mejor sé hacer: la baldosa bien puesta. Trabajo en Loja y alrededores, y en Granada, Málaga y sus alrededores.
 
+:::cards galeria
+## En obra
+
+Así trabaja Miguel Ángel. Pulsa para ver los vídeos (sin sonido).
+
+### Solando un pasillo
+![Vídeo: Miguel Ángel colocando las piezas del suelo de un pasillo](/video/solado-pasillo-en-obra.mp4)
+
+Colocación de las piezas, una a una.
+
+### Cemento cola y piezas
+![Vídeo a cámara rápida: Miguel Ángel peinando el cemento cola y colocando piezas en el suelo de un salón](/video/colocacion-piezas-camara-rapida.mp4)
+
+A cámara rápida.
+:::
+
 ## Cómo trabajamos
 
 - Te explicamos qué vamos a hacer antes de empezar.
